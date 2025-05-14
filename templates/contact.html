@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <h1 class="text-center mb-4">Contact us for custom guide</h1>
+    
+    <form method="POST" action="{{ url_for('contact') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        
+        <div class="mb-3">
+            <label for="name" class="form-label">Your name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Your Email Address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="phone" class="form-label">Your Phone Number (optional)</label>
+            <input type="tel" class="form-control" id="phone" name="phone">
+        </div>
+        
+        <div class="mb-3">
+            <label for="website" class="form-label">Your Web Site (optional)</label>
+            <input type="url" class="form-control" id="website" name="website">
+        </div>
+        
+        <div class="mb-3">
+            <label for="message" class="form-label">Type your message here...</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+    <div class="text-center mt-4">
+        Designed by Quizlib
+    </div>
+</div>
+{% endblock %}
